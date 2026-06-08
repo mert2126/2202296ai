@@ -11,7 +11,7 @@ This project implements a CPU-friendly autonomous driving agent for the `highway
 The policy is optimized using a compact multi-objective reward function that encourages forward progress while strongly penalizing unsafe behavior:
 
 $$
-R_t = 0.4\,\hat{v}_t - 1.0\,\mathbb{1}(\text{collision}_t) + 0.2\,\\$\mathbb{1}(\text{lane-stable}_t)$ - 0.1\,\lvert \Delta a_t \rvert
+R_t = 0.4\,\hat{v}_t - 1.0\,\mathbb{1}(\text{collision}_t) + 0.2\,\mathbb{1}(\text{lane-stable}_t) - 0.1\,\lvert \Delta a_t \rvert
 $$
 
 Here, $\hat{v}_t$ is the normalized speed, $\mathbb{1}(\text{collision}_t)$ is a collision penalty, $\mathbb{1}(\text{lane\_stable}_t)$ rewards steady lane discipline, and $\lvert \Delta a_t \rvert$ discourages unnecessary action switching. The weighting is intentionally safety-biased, ensuring the agent prefers stable traffic handling over aggressive lane changes.
